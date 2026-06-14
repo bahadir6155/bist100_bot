@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIST100 AI Temel Analiz Platformu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar glass">
+            <div class="sidebar-header">
+                <h2>BIST100 AI</h2>
+                <p>Otonom Temel Analiz</p>
+            </div>
+            
+            <div class="action-panel">
+                <input type="text" id="analyze-input" placeholder="Hisse Filtrele..." autocomplete="off">
+                <button id="btn-analyze-all" class="btn-secondary" style="margin-top: 10px;">Tüm BIST100'ü Tara</button>
+            </div>
+            
+            <div class="ticker-list-container">
+                <h3>Geçmiş Analizler</h3>
+                <ul id="ticker-list">
+                    <!-- JavaScript ile doldurulacak -->
+                </ul>
+            </div>
+            
+            <div id="progress-container" class="progress-container hidden">
+                <div class="progress-header">
+                    <span id="progress-text">Tarama: %0</span>
+                    <span id="progress-stats">0/100</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div id="progress-bar-fill" class="progress-bar-fill"></div>
+                </div>
+                <div id="progress-current" class="progress-current">Başlıyor...</div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="topbar glass" style="display: flex; justify-content: space-between; align-items: center;">
+                <h1 id="selected-ticker-title">Hisse Seçin</h1>
+                <button id="btn-reanalyze" class="btn-primary hidden" style="width: auto; padding: 8px 16px; font-size: 0.875rem;">Bu Hisseyi Yeniden Analiz Et</button>
+            </header>
+
+            <div id="content-area" class="content-area">
+                <div class="welcome-state" id="welcome-state">
+                    <div class="welcome-icon">✨</div>
+                    <h2>Analizleri İncelemeye Başlayın</h2>
+                    <p>Sol menüden geçmiş analizi olan bir hisseye tıklayın veya yeni bir hisse analiz edin.</p>
+                </div>
+                
+                <div id="analysis-dashboard" class="dashboard hidden">
+                    <!-- Dashboard Cards -->
+                    <div class="metrics-grid">
+                        <div class="metric-card glass">
+                            <span class="label">Sinyal</span>
+                            <span class="value" id="val-signal">-</span>
+                        </div>
+                        <div class="metric-card glass">
+                            <span class="label">Risk Skoru</span>
+                            <span class="value" id="val-risk">-</span>
+                        </div>
+                        <div class="metric-card glass">
+                            <span class="label">Fiyat</span>
+                            <span class="value" id="val-price">-</span>
+                        </div>
+                        <div class="metric-card glass">
+                            <span class="label">F/K Oranı</span>
+                            <span class="value" id="val-pe">-</span>
+                        </div>
+                        <div class="metric-card glass">
+                            <span class="label">F/DD Oranı</span>
+                            <span class="value" id="val-pb">-</span>
+                        </div>
+                        <div class="metric-card glass">
+                            <span class="label">ROE</span>
+                            <span class="value" id="val-roe">-</span>
+                        </div>
+                    </div>
+
+                    <!-- Price Chart -->
+                    <div class="chart-card glass" id="chart-container" style="height: 400px; margin-bottom: 24px; border-radius: 12px; padding: 20px;">
+                        <canvas id="price-chart"></canvas>
+                    </div>
+
+                    <!-- AI Commentary -->
+                    <div class="commentary-card glass">
+                        <div class="card-header">
+                            <h3>Yapay Zeka Yatırımcı Yorumu</h3>
+                            <span class="timestamp" id="val-timestamp"></span>
+                        </div>
+                        <div class="commentary-content" id="val-commentary">
+                            <!-- Metin -->
+                        </div>
+                    </div>
+                    
+                    <!-- History Timeline -->
+                    <div class="history-card glass">
+                        <h3>Önceki Analizler</h3>
+                        <ul class="timeline" id="history-timeline">
+                            <!-- JS dolduracak -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Notification Toast -->
+    <div id="toast" class="toast hidden">Bildirim</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/static/app.js"></script>
+</body>
+</html>

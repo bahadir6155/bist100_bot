@@ -1,0 +1,44 @@
+# Environment variables (API keys!)
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+
+# IDE
+.vscode/
+.idea/
+
+# Test cache
+.pytest_cache/
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Custom
+venv/
+miniconda/
+bist_db.sqlite
+bist_bot.zip
+
+# Test & Debug Files
+test_gemini.py
+GeminiApiTest.txt
+*.log
+
+# Deployment scripts (Contain secrets!)
+deploy.py
+check_firewall.py
+check_logs.py
+fix_deps.py
+fix_service.py
+update_port.py
+
+# DB & dynamic
+analyses.db
+models.json
